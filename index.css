@@ -313,7 +313,7 @@ details {
 #prizes h3::before {content:'🎁';}
 #points h3::before {content:'🪙';}
 #regulation h3::before {content:'🏆'}
-h4 {
+article h4 {
     margin:1.5em 0 1em 0;
     display:block;
     text-align:left;font-weight:bold;
