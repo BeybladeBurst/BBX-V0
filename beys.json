@@ -1,0 +1,125 @@
+{
+   "2023-09":[
+      {
+         "code":"BX-14",
+         "prod":"Random Booster Vol.1",
+         "type":"A r",
+         "img": "https://pbs.twimg.com/media/F0angG9aAAAIReR?format=jpg&name=large",
+         "jap":"シャークエッジ3-60LF",
+         "eng":"Shark Edge 3-60LF",
+         "desc":"降低版【F】Bit"
+      }
+   ],
+   "2023-08-10":[
+      {
+         "code":"BX-13",
+         "prod":"Booster",
+         "type":"D r",
+         "img":"https://takaratomymall.jp/img/goods/5/4904810910565_01cf3d8fc5fd488980582c92ee455f57.jpg",
+         "jap":"ナイトランス4-80HN",
+         "eng":"Knight Lance 4-80HN",
+         "desc":"加高版【N】Bit"
+      }
+   ],
+   "2023-07-15":[
+      {
+         "code":"BX-01",
+         "prod":"Starter",
+         "type":"A r",
+         "jap":"ドランソード3-60F",
+         "eng":"Dran Sword 3-60F"
+      },
+      {
+         "code":"BX-02",
+         "prod":"Starter",
+         "type":"B r",
+         "jap":"ヘルズサイズ4-60T",
+         "eng":"Hells Scythe 4-60T"
+      },
+      {
+         "code":"BX-03",
+         "prod":"Starter",
+         "type":"S r",
+         "jap":"ウィザードアロー4-80B",
+         "eng":"Wizard Arrow 4-80B"
+      },
+      {
+         "code":"BX-04",
+         "prod":"Starter",
+         "type":"D r",
+         "jap":"ナイトシールド3-80N",
+         "eng":"Knight Shield 3-80N"
+      },
+      {
+         "code":"BX-05",
+         "prod":"Booster",
+         "type":"S r",
+         "jap":"ウィザードアロー4-80B",
+         "eng":"Wizard Arrow 4-80B",
+         "desc":"03 異色 Booster 版"
+      },
+      {
+         "code":"BX-06",
+         "prod":"Booster",
+         "type":"D r",
+         "jap":"ナイトシールド3-80N",
+         "eng":"Knight Shield 3-80N",
+         "desc":"04 異色 Booster 版"
+      },
+      {
+         "code":"BX-07",
+         "prod":"Set",
+         "jap":"スタートダッシュセット",
+         "eng":"Start Dash Set",
+         "desc":"含拉線發射器"
+      },
+      {
+         "code":"BX-08",
+         "dissect":[
+            "bx08_r",
+            "bx08_g",
+            "bx08_y"
+         ],
+         "prod":"Set",
+         "jap":"3on3デッキセット",
+         "eng":"3on3 Deck Set",
+         "desc":"異色版 02~04"
+      },
+      {
+         "code":"BX-09",
+         "jap":"ベイバトルパス",
+         "eng":"Bey Battle Pass",
+         "desc":"測量、記錄發射次數力度，並換成分數"
+      },
+      {
+         "code":"BX-10",
+         "jap":"エクストリームスタジアム",
+         "eng":"Xtreme Stadium"
+      },
+      {
+         "code":"BX-11",
+         "jap":"ランチャーグリップ",
+         "eng":"Launcher Grip",
+         "desc":"發射器手把"
+      },
+      {
+         "code":"BX-12",
+         "jap":"3on3デッキケース",
+         "eng":"3on3 Deck Case",
+         "desc":"3on3 對戰用陀螺盒"
+      },
+      {
+         "code":"BXG-01",
+         "prod":"Booster",
+         "type":"B r",
+         "jap":"ドランザースパイラル3-80T",
+         "eng":"Dranzer Spiral 3-80T"
+      },
+      {
+         "code":"BXG-02",
+         "img":"https://takaratomymall.jp/img/goods/5/4904810913009_ee23e657ce1a4fc6a0ae08278e6f40de.jpg",
+         "jap":"エクストリームスタジアム ライトパッケージ",
+         "eng":"Xtreme Stadium Light Package"
+      }
+   ]
+}
