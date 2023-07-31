@@ -237,7 +237,7 @@ const listProducts = beys => {
                 borderColor: Object.entries(colors).find(([type, color]) => b.prod.includes(type))?.[1]
             },
             classList: b.type ?? '',
-            imgs: new Date(date)-new Date() > 3600*1000*24*60 ? '' : (b.img ?? `${base}${b.code.replace('-', '')}@1.png`),
+            imgs: b.img ?? (new Date(date) - new Date() > 3600*1000*24*60 ? '_' : `${base}${b.code.replace('-', '')}@1.png`),
             caption: E.dl({
                 [`${b.code}${b.prod ? ` ${b.prod}` : ''}`]: [b.eng ?? '', ...(b.desc ?? '').split('//')]
             }).outerHTML
