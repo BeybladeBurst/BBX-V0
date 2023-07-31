@@ -1,0 +1,24 @@
+{
+    "blade": {
+      "ShEd": {"type":"att","attr":["r"],"img":"BX14_02","name":"SharkEdge"},
+      "KnLn": {"type":"def","attr":["r"],"img":"BX13_02","name":"KnightLance"},
+      "KnSh": {"type":"def","attr":["r"],"img":"BX04_02","name":"KnightShield"},
+      "WzAr": {"type":"sta","attr":["r"],"img":"BX03_02","name":"WizardArrow"},
+      "HlSc": {"type":"bal","attr":["r"],"img":"BX02_02","name":"HellsScythe"},
+      "DrSw": {"type":"att","attr":["r"],"img":"BX01_02","name":"DranSword"},
+      "DzSp": {"type":"bal","attr":["r"],"img":"BXG01_01","name":"DranzerSpiral"},
+      "CbDr": {"type":"att","attr":["r"],"img":"F2XuxxMXcAEXY3u","name":"CobaltDrake"}
+    },
+    "ratchet": {
+        "3-60": {"img":"BX01_03"},
+        "4-60": {"img":"BX02_03"},
+        "4-80": {"img":"BX03_03"},
+        "3-80": {"img":"BX04_03"}
+    },
+    "bit": {
+        "Flat": {"type":"att","img":"BX01_04","attr":["L"]},
+        "Taper": {"type":"bal","img":"BX02_04"},
+        "Ball": {"type":"sta","img":"BX03_04"},
+        "Needle": {"type":"def","img":"BX04_04","attr":["H"]}
+    }
+}  

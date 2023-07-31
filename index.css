@@ -51,7 +51,7 @@ input[type=checkbox],input[type=radio],::-webkit-details-marker {
         微軟正黑體,Microsoft JhengHei,Sans-Serif;
 }
 :root {
-    font-size:min(20px,4.5vw); font-family:sans-serif;
+    font-size:min(20px,4.5vw); font-family:sans-serif; line-height:1.4;
     color:white; --theme:#a2ff1f; --theme-50:#a2ff1f80; --theme-dark:#518010;
     --base-bg:#152211;
 }
@@ -260,42 +260,37 @@ details {
     content:'🛍️'
 }
 #products time {
-    width:100%;
-    font-size:.8em;
-}
-#products time:not(:first-of-type) {
-    margin-top:1em;
+    display:block; text-align:left;
+    margin:1em 0 .5em 0; padding-left:.5rem;
+    border-left:.1rem var(--theme) dashed;
 }
 #products figure {
-    width:min(18em,49%);
-    font-size:.8em;
+    font-size:.85em;
     position:relative;
 }
-#products figure::before {
-    content:'';
-    position:absolute; top:4%; left:5%;
-    --h:min(3em,8vw); height:var(--h); width:var(--h);
-    background:transparent no-repeat left / auto 100%;
+#products figure:not(:has(img)) {
+    margin:.25em 0;
 }
-#products :is(figure.r,figure.l)::before {
-    width:calc(var(--h)*2);
-}
-#products figure.A::before {background-image:url(https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/icon_atack.png)}
-#products figure.B::before {background-image:url(https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/icon_balance.png)}
-#products figure.D::before {background-image:url(https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/icon_defense.png)}
-#products figure.S::before {background-image:url(https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/icon_stamina.png)}
 #products figure img {
-    width:100%;
+    width:min(18em,49%);
+    margin:.25em 0;
 }
 #products figcaption {
     text-align:left;
+    border-left:.1rem solid; border-color:inherit; padding-left:.5rem;
 }
-#products dl {
-    padding:0 .2em;
+#products figure:not([style]) figcaption {border-color:gray;}
+
+figure:not([class='']) dt::after {
+    content:''; background:transparent center / contain no-repeat;
+    width:2em; height:2em; display:inline-block;
+    vertical-align:middle;
+    margin-left:.3em;
 }
-#products dl::before {
-    content:'▲ ';
-}
+figure.att dt::after {background-image:url(img/A.png);}
+figure.bal dt::after {background-image:url(img/B.png);}
+figure.def dt::after {background-image:url(img/D.png);}
+figure.sta dt::after {background-image:url(img/S.png);}
 #products dt,#products dd {
     display:inline;
 }
@@ -309,6 +304,70 @@ details {
 #products details img {
     width:min(100%,19.5em);
 }
+
+#parts h3::before {content:'⚙️';}
+#parts ul {
+    display:flex; gap:.5em; overflow-x:scroll;
+    user-select:none;
+    background:gray;
+    color:black;
+}
+#parts ul::-webkit-scrollbar {
+    background:transparent;
+    height:.5em;
+}
+#parts ul::-webkit-scrollbar-thumb {
+    background:#ffffff66;
+}
+#parts h4,#parts li {background:white;}
+#parts h4 {
+    writing-mode:vertical-lr; font-size:1.2em; text-align:left;
+    padding:.5em 0;
+    display:flex; justify-content:space-between; align-items:center;
+    min-width:2.5em;
+}
+#parts h4 span {
+    font-size:.7em;
+}
+#parts h4 i {
+    writing-mode:initial;
+    margin-right:-.1em;
+}
+#parts li {
+    min-width:10em;
+    position:relative;
+    overflow:hidden;
+    display:flex; align-items:center;
+}
+#parts h5,#parts li::before,#parts li::after {
+    position:absolute; z-index:1;
+}
+#parts h5 {
+    top:.5em; left:50%; transform:translateX(-50%);
+}
+#bit h5 {font-size:.75em;}
+#bit h5::first-letter {font-size:2em;}
+#parts li::before {
+    content:''; background:transparent center / contain no-repeat;
+    width:2em; height:2em;
+    left:.5rem; bottom: .5rem;
+}
+#parts li::after {
+    font-size:1.5em;
+    right:.5rem; bottom: .5rem;
+}
+#parts .att::before {background-image:url(img/A.png);}
+#parts .bal::before {background-image:url(img/B.png);}
+#parts .sta::before {background-image:url(img/S.png);}
+#parts .def::before {background-image:url(img/D.png);}
+#parts .l::after {content:'🔄️'; filter:hue-rotate(180deg);}
+#parts .r::after {content:'🔄️'; transform:scaleX(-1);}
+#parts .H::after {content:'🔼'; filter:hue-rotate(180deg);}
+#parts .L::after {content:'🔽';}
+#parts .H.L::after {content:'🔼🔽';}
+#parts img {width:100%;}
+#parts li img[src*=lineup] {transform:scale(1.4);}
+#parts li img:not([src*=lineup]) {transform:scale(.8);}
 
 #prizes h3::before {content:'🎁';}
 #points h3::before {content:'🪙';}

@@ -57,19 +57,21 @@
         <li><a class=links href="https://twitter.com/beyblade_info">🌏</a><span>𝕏<small>綜合</small></span></li>    
         <li><a class=links href="https://twitter.com/tbh_pr">🛠️</a><span>𝕏<small>開發</small></span></li>    
     </menu>    
-    <div data-beys="03,04,07,08,BXG-01">
+    <div data-beys="13">
         <h4>陀螺實物</h4>
     </div>
 </section>
 
 <section id="products">
     <h3>最新商品</h3>
-    <div class=limited>
-        <button>查看更多</button>
-    </div>
-    <details>
-        <summary>陀螺解剖</summary>
-     </details>
+    <div></div>
+</section>
+
+<section id="parts">
+    <h3>部件簡列</h3>
+    <ul id="blade"><h4>BLADE</h4></ul>
+    <ul id="ratchet"><h4>RATCHET</h4></ul>
+    <ul id="bit"><h4>BIT<span>🔼有增高版<i>(H)</i><br>🔽有降低版<i>(L)</i></span></h4></ul>
 </section>
 
 <section id="regulation">
@@ -219,10 +221,21 @@ Q('input').onkeypress = ev => {
         return location.href = `https://twitter.com/hashtag/${/(?<=#).+/.exec(ev.target.value)}/?f=live`;
     return location.href = `https://${ev.target.value}`;
 }
+</script>
+<script>
 const listProducts = beys => {
     let base = 'https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/';
-    Object.entries(beys).forEach(([date, beys]) => {
+    let colors = {
+        Set: 'hsl(250,70%,70%)',
+        Starter: 'hsl(200,70%,60%)',
+        Random: 'hsl(0,0%,90%)',
+        Booster: 'hsl(10,70%,60%)',
+    };
+    Object.entries(beys).reverse().forEach(([date, beys]) => {
         let figures = beys.map(b => E.figure({
+            style: {
+                borderColor: Object.entries(colors).find(([type, color]) => b.prod.includes(type))?.[1]
+            },
             classList: b.type ?? '',
             imgs: b.img ?? `${base}${b.code.replace('-', '')}@1.png`,
             caption: E.dl({
@@ -230,35 +243,46 @@ const listProducts = beys => {
             }).outerHTML
         }));
         Q('#products div').append(E('time', {textContent: date}), ...figures);
-
-        let imgs = beys.filter(b => b.prod).flatMap(b => b.dissect ?? b.code.replace('-', '').toLowerCase())
-            .map(code => E('img', {src: `${base}detail_${code}.png`}));
-        Q('#products summary').onclick = () => Q('#products details img') || Q('#products details').append(...imgs);
     });
     Q('[data-beys] h4').after(...Q('[data-beys]').getAttribute('data-beys').split(',').map(b => E('a', {
         textContent: b = b.replace(/^(?!BX)/, 'BX-'),
         href: `https://www.youtube.com/results?search_query=${Object.values(beys).flat().find(({code}) => b == code)?.jap}+-yuki&sp=CAI%253D`,
         style: {
-            background: `
-            url(${base}${b.replace('-','')}_list.png) no-repeat left / contain,
-            linear-gradient(to right,var(--theme) var(--stop),transparent var(--stop))`
+            background: `url(${base}${b.replace('-','')}_list.png) no-repeat left / contain, linear-gradient(to right,var(--theme) var(--stop),transparent var(--stop))`
         },
     })));
 }
+const listParts = parts => {
+    let img = {
+        tomy: id => `https://beyblade.takaratomy.co.jp/beyblade-x/lineup/_image/${id}@1.png`,
+        twit: id => `https://pbs.twimg.com/media/${id}?format=png`
+    };
+    let sorter = {
+        blade: ([_1, b], [_2, c]) => b.type > c.type ? 1 : b.type < c.type ? -1 : b.img < c.img ? 1 : -1,
+        ratchet: ([r], [s]) => r > s ? 1 : -1,
+        bit: ([s, b], [t, c]) => b.type > c.type ? 1 : b.type < c.type ? -1 : b > t ? 1 : -1,
+    };
+    ['blade', 'ratchet', 'bit'].forEach(comp => {
+        Q(`#${comp}`).append(...Object.entries(parts[comp]).sort(sorter[comp]).map(([id, r]) => 
+            E('li', {id, classList: `${(r.attr ?? []).join()} ${r.type ?? ''}`}, [
+                E('h5', r.name ?? id),
+                E('img', {src: img[/^BX/.test(r.img) ? 'tomy' : 'twit'](r.img)})
+            ])
+        ));
+        Q(`#${comp} h4`).prepend(`[${Q(`#${comp}`).children.length - 1}] `);
+    });
+}
+
 const waitImages = () =>
     Promise.all([...document.images].filter(img => !img.complete).map(img => new Promise(res => {
         img.onload = res;
-        img.onerror = ev => res(ev.target.matches('figure img') ? ev.target.replaceWith(E('i', {classList: 'no-img'})) : ev.target.remove());
+        img.onerror = ev => res(ev.target.remove());
     })));
-const showMore = () => 
-    Q('.limited button', button => {
-        let div = button.parentElement;
-        div.scrollHeight > div.clientHeight ? 
-            button.onclick = () => (div.style.maxHeight = 'initial') && button.remove() : 
-            button.remove();
-    });
 
-fetch('beys.json').then(resp => resp.json()).catch(() => beys).then(listProducts).then(waitImages).then(showMore).catch(er => console.error(er));
+fetch('beys.json').then(resp => resp.json()).catch(() => beys).then(listProducts)
+.then(() => fetch('parts.json')).then(resp => resp.json()).then(listParts)
+.then(waitImages).catch(er => console.error(er));
+
 const observer = new IntersectionObserver(entries => entries.forEach(entry => entry.target.parentElement.classList.toggle('seeing', entry.isIntersecting)));
 Q('section h3+*', content => observer.observe(content));
 </script>
