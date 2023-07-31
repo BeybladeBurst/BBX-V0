@@ -310,7 +310,7 @@ figure.sta dt::after {background-image:url(img/S.png);}
     display:flex; gap:.5em; overflow-x:scroll;
     user-select:none;
     background:gray;
-    color:black;
+    color:black; font-size:.9em;
 }
 #parts ul::-webkit-scrollbar {
     background:transparent;
