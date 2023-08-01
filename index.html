@@ -269,7 +269,7 @@ const listParts = parts => {
                 E('img', {src: img[/^BX/.test(r.img) ? 'tomy' : 'twit'](r.img)})
             ])
         ));
-        Q(`#${comp} h4`).prepend(`[${Q(`#${comp}`).children.length - 1}] `);
+        Q(`#${comp} h4`).prepend(`[${Q(`#${comp}`).children.length + document.querySelectorAll(`#${comp} .H`).length + document.querySelectorAll(`#${comp} .L`).length - 1}] `);
     });
 }
 
