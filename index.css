@@ -360,9 +360,9 @@ figure.sta dt::after {background-image:url(img/S.png);}
 #parts .bal::before {background-image:url(img/B.png);}
 #parts .sta::before {background-image:url(img/S.png);}
 #parts .def::before {background-image:url(img/D.png);}
-#parts .l::after {content:'🔄️'; filter:hue-rotate(180deg);}
-#parts .r::after {content:'🔄️'; transform:scaleX(-1);}
-#parts .H::after {content:'🔼'; filter:hue-rotate(180deg);}
+#parts .l::after {content:'🔄️';}
+#parts .r::after {content:'🔃';}
+#parts .H::after {content:'🔼';}
 #parts .L::after {content:'🔽';}
 #parts .H.L::after {content:'🔼🔽';}
 #parts img {width:100%;}
