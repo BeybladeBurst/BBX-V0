@@ -19,15 +19,15 @@
       {"code":"BX-17", "prod":"Entry Set", "desc":"對戰盤組合"},
       {"code":"BX-18", "prod":"BeyLauncher", "desc":"拉線發射器"}
    ],
-   "2023-09":[
+   "2023-09-09":[
       {
          "code":"BX-14",
          "prod":"Random Booster Vol.1",
          "type":"att",
-         "img": "https://pbs.twimg.com/media/F0angG9aAAAIReR?format=jpg&name=large",
+         "img": "https://takaratomymall.jp/img/goods/5/4904810912965_0b12e3f77c2e4cc7942ee79fb3bf451e.jpg",
          "jap":"シャークエッジ3-60LF",
          "eng":"Shark Edge 3-60LF",
-         "desc":"降低版【F】Bit"
+         "desc":["降低版【F】Bit，軸端底部凹洞亦填滿","其餘五款：黃 ShEd.4-80N、黑 DrSw.3-80B、綠 HlSc.4-80LF、藍 KnSh.4-60LF、紅 WzAr.3-60T"]
       }
    ],
    "2023-08-10":[
@@ -38,7 +38,7 @@
          "img":"https://takaratomymall.jp/img/goods/5/4904810910565_01cf3d8fc5fd488980582c92ee455f57.jpg",
          "jap":"ナイトランス4-80HN",
          "eng":"Knight Lance 4-80HN",
-         "desc":"加高版【N】Bit"
+         "desc":"加高版【N】Bit，軸尖尖銳度亦減少"
       }
    ]
 }

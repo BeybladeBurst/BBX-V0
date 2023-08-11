@@ -7,7 +7,7 @@
       "HlSc": {"type":"bal","attr":["r"],"img":"BX02_02","name":"HellsScythe"},
       "DrSw": {"type":"att","attr":["r"],"img":"BX01_02","name":"DranSword"},
       "DzSp": {"type":"bal","attr":["r"],"img":"BXG01_01","name":"DranzerSpiral"},
-      "CbDr": {"type":"att","attr":["r"],"img":"F2XuxxMXcAEXY3u","name":"CobaltDrake"}
+      "CbDr": {"type":"att","attr":["r"],"img":"img/keihin/CbDr.png","name":"CobaltDrake"}
     },
     "ratchet": {
         "3-60": {"img":"BX01_03"},

@@ -12,7 +12,7 @@ body,menu,ul,ol,dl,dt,dd,summary,figure {
     list-style:none;
     margin:0; padding:0;
 }
-[hidden] {
+[hidden],img[src=_] {
     display:none !important;
 }
 
@@ -268,7 +268,7 @@ details {
     font-size:.85em;
     position:relative;
 }
-#products figure:not(:has(img)) {
+#products figure:not(:has(img)),#products figure:has(img[src=_]) {
     margin:.25em 0;
 }
 #products figure img {
@@ -285,7 +285,7 @@ figure:not([class='']) dt::after {
     content:''; background:transparent center / contain no-repeat;
     width:2em; height:2em; display:inline-block;
     vertical-align:middle;
-    margin-left:.3em;
+    margin:0 .3em;
 }
 figure.att dt::after {background-image:url(img/A.png);}
 figure.bal dt::after {background-image:url(img/B.png);}
@@ -299,27 +299,30 @@ figure.sta dt::after {background-image:url(img/S.png);}
 }
 #products dd~dd::before {
     content:'•';
-    margin:0 .5em 0 1em;
+    margin-right:.5em;
+}
+#products dd~dd {
+    display:block;
 }
 #products details img {
     width:min(100%,19.5em);
 }
 
 #parts h3::before {content:'⚙️';}
-#parts ul {
+.scroller {
     display:flex; gap:.5em; overflow-x:scroll;
     user-select:none;
     background:gray;
     color:black; font-size:.9em;
 }
-#parts ul::-webkit-scrollbar {
+.scroller::-webkit-scrollbar {
     background:transparent;
     height:.5em;
 }
-#parts ul::-webkit-scrollbar-thumb {
+.scroller::-webkit-scrollbar-thumb {
     background:#ffffff66;
 }
-#parts h4,#parts li {background:white;}
+#parts h4,.scroller li {background:white;}
 #parts h4 {
     writing-mode:vertical-lr; font-size:1.2em; text-align:left;
     padding:.5em 0;
@@ -333,26 +336,26 @@ figure.sta dt::after {background-image:url(img/S.png);}
     writing-mode:initial;
     margin-right:-.1em;
 }
-#parts li {
+.scroller li {
     min-width:10em;
     position:relative;
     overflow:hidden;
     display:flex; align-items:center;
 }
-#parts h5,#parts li::before,#parts li::after {
+.scroller h5,.scroller li::before,.scroller li::after {
     position:absolute; z-index:1;
 }
-#parts h5 {
+.scroller h5 {
     top:.5em; left:50%; transform:translateX(-50%);
 }
 #bit h5 {font-size:.75em;}
 #bit h5::first-letter {font-size:2em;}
-#parts li::before {
+.scroller li::before {
     content:''; background:transparent center / contain no-repeat;
     width:2em; height:2em;
     left:.5rem; bottom: .5rem;
 }
-#parts li::after {
+.scroller li::after {
     font-size:1.5em;
     right:.5rem; bottom: .5rem;
 }
@@ -365,13 +368,15 @@ figure.sta dt::after {background-image:url(img/S.png);}
 #parts .H::after {content:'🔼';}
 #parts .L::after {content:'🔽';}
 #parts .H.L::after {content:'🔼🔽';}
-#parts img {width:100%;}
+.scroller img {width:100%;}
 #parts li img[src*=lineup] {transform:scale(1.4);}
 #parts li img:not([src*=lineup]) {transform:scale(.8);}
 
+#prizes li {padding-top:2em;}
+#prizes h5 {width:100%;}
+
 #prizes h3::before {content:'🎁';}
 #points h3::before {content:'🪙';}
-#regulation h3::before {content:'🏆'}
 #others h3::before {content:'🧩'}
 article h4 {
     margin:1.5em 0 1em 0;
